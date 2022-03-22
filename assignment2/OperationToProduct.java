@@ -97,25 +97,24 @@ class OperationToProduct {
 		String[] arr = null;
 		String line = reader.readLine();
 
-
 		while (line != null) {
 
-		arr = line.split("  \\|  ");
+		    arr = line.split("  \\|  ");
 
-		line = reader.readLine();
-		//System.out.println(line);
+		    line = reader.readLine();
+		    // System.out.println(line);
 
-		// create variable compare Product with arr[0... len-1] add variable to Product
-		// and insert to list at tail
+		    // create variable compare Product with arr[0... len-1] add variable to Product
+		    // and insert to list at tail
 
-		String bcode = arr[0];
-		String title = arr[1];
-		int quantity = Integer.parseInt(arr[2]);
-		double price = Double.parseDouble(arr[3]);
+		    String bcode = arr[0];
+		    String title = arr[1];
+		    int quantity = Integer.parseInt(arr[2]);
+		    double price = Double.parseDouble(arr[3]);
 
-		Product product = new Product(bcode, title, quantity, price);
+		    Product product = new Product(bcode, title, quantity, price);
 
-		list.insertToTail(product);
+		    list.insertToTail(product);
 
 		}
 	    }
@@ -285,17 +284,23 @@ class OperationToProduct {
 
     /**
      *
-     * Convert a decimal to an array of binary. Example: input i = 18 -> Output =
-     *
-     * {0, 1, 0, 0, 0, 1}
+     * Convert a decimal to of binary. Example: input i = 18
+     * -> Output = 010001
      *
      * @param i Input decimal number
      *
-     * @return Array of binary numbers
+     * @return binary numbers
      *
      */
 
-    int[] convertToBinary(int i) {
+    int convertToBinary(int i) {
+	if (i == 0) {
+	    return 0;
+	}
+
+	else {
+	    return (i % 2 + 10 * convertToBinary(i / 2));
+	}
 
     }
 
@@ -310,6 +315,8 @@ class OperationToProduct {
      */
 
     void deleteAtPosition(MyList<Product> list, int pos) {
+	int countPos = 0;
+
 
     }
 
