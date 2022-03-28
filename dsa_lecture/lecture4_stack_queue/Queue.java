@@ -1,8 +1,8 @@
-package lecture4;
+package lecture4_stack_queue;
 
 //Queue implementation in Java
 
-public class Queue {
+ class Queue {
     int SIZE = 5;
     int items[] = new int[SIZE];
     int front, rear;
@@ -79,7 +79,7 @@ public class Queue {
 
     }
 
-    public static void main(String[] args) {
+     static void main(String[] args) {
 	Queue q = new Queue();
 
 	// deQueue is not possible on empty queue

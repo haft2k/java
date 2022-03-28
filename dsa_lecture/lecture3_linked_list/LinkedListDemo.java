@@ -1,4 +1,4 @@
-package lecture3;
+package lecture3_linked_list;
 
 public class LinkedListDemo {
     public static void main(String[] args) {

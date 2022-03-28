@@ -1,9 +1,9 @@
-package lecture3;
+package lecture3_linked_list;
 
-public class DoublyLinkedList {
+ class DoublyLinkedList {
     private DoublyLinkedNode head;
 
-    public void insertAtHead(int data) {
+     void insertAtHead(int data) {
 	DoublyLinkedNode newNode = new DoublyLinkedNode(data);
 	newNode.setNextNode(newNode);
 

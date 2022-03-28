@@ -1,19 +1,19 @@
-package lecture4;
+package lecture4_stack_queue;
 
 import java.util.EmptyStackException;
 
 class StackLinkedList {
     protected Node head;
 
-    public StackLinkedList() {
+    StackLinkedList() {
 	head = null;
     }
 
-    public boolean isEmpty() {
+    boolean isEmpty() {
 	return (head == null);
     }
 
-    public void push(Object x) {
+    void push(Object x) {
 	head = new Node(x, head);
     }
 
@@ -25,7 +25,7 @@ class StackLinkedList {
 	return (head.data);
     }
 
-    public Object pop() throws EmptyStackException {
+    Object pop() throws EmptyStackException {
 	if (isEmpty()) {
 	    throw new EmptyStackException();
 	}

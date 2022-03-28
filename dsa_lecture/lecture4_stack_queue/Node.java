@@ -1,4 +1,4 @@
-package lecture4;
+package lecture4_stack_queue;
 
 class Node {
     public Object data;

@@ -1,3 +1,4 @@
+package lecture6_tree;
 //package lecture6;
 //
 //class Node {
@@ -11,7 +12,7 @@
 //     *
 //     * @param data
 //     */
-//    public Node(Integer data) {
+//    Node(Integer data) {
 //	this.data = data;
 //    }
 //

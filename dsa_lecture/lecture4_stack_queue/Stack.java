@@ -1,11 +1,11 @@
-package lecture4;
+package lecture4_stack_queue;
 
-public class Stack {
+ class Stack {
     private int maxSize;
     private char[] stackArray;
     private int top;
 
-    public Stack(int max) {
+     Stack(int max) {
 	maxSize = max;
 	stackArray = new char[maxSize];
 	top = -1;
@@ -18,23 +18,23 @@ public class Stack {
      * if (j = i++; (i=2, j=2)) post-increment
      *
      */
-    public void push(char j) {
+     void push(char j) {
 	stackArray[++top] = j;
     }
 
-    public char pop() {
+     char pop() {
 	return stackArray[top--];
     }
 
-    public char peek() {
+     char peek() {
 	return stackArray[top];
     }
 
-    public boolean isEmpty() {
+     boolean isEmpty() {
 	return (top == -1);
     }
 
-    public static void main(String[] args) {
+     static void main(String[] args) {
 	Stack stack = new Stack(4);
 	stack.push('a');
 	System.out.println(stack.peek());

@@ -1,4 +1,4 @@
-package assignment2;
+package assign2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -137,7 +137,41 @@ class OperationToProduct {
      */
 
     void getAllItemsFromFile(String fileName, Stack<Product> stack) {
+	try {
+	    InputStream inputStream = new FileInputStream(fileName);
+	    InputStreamReader inputReader = new InputStreamReader(inputStream);
+	    BufferedReader reader = new BufferedReader(inputReader);
 
+	    // Use array save product
+	    // push to stack with method pop()
+	    String[] arr = null;
+	    String line = reader.readLine();
+
+	    while (line != null) {
+		arr = line.split("  \\|  ");
+
+		// Read by line
+		line = reader.readLine();
+
+		// create variable compare Product with arr[0... len-1]
+		// add variable to Product
+		// and insert to stack
+
+		String bcode = arr[0];
+		String title = arr[1];
+		int quantity = Integer.parseInt(arr[2]);
+		double price = Double.parseDouble(arr[3]);
+
+		Product product = new Product(bcode, title, quantity, price);
+
+		stack.push(product);
+	    }
+
+	} catch (Exception e) {
+	    // TODO
+	    e.printStackTrace();
+	}
+		    		
     }
 
     /**
@@ -151,7 +185,13 @@ class OperationToProduct {
      */
 
     void getAllItemsFromFile(String fileName, Queue<Product> queue) {
+	try {
+	    InputStream inputStream = new FileInputStream(fileName);
+	    InputStreamReader inputReader = new InputStreamReader(inputStream);
+	    BufferedReader reader = new BufferredReader(inputReader);
 
+	    // User array save product
+	    // pu
     }
 
     /**
@@ -286,6 +326,7 @@ class OperationToProduct {
      *
      * Convert a decimal to of binary. Example: input i = 18
      * -> Output = 010001
+     * Use recursion convert
      *
      * @param i Input decimal number
      *

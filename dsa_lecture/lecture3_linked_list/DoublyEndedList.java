@@ -1,10 +1,10 @@
-package lecture3;
+package lecture3_linked_list;
 
-public class DoublyEndedList {
+ class DoublyEndedList {
     private Node headNode;
     private Node tail;
 
-    public void insertAtTail(int data) {
+     void insertAtTail(int data) {
 
 	Node newNode = new Node(data);
 
@@ -16,7 +16,7 @@ public class DoublyEndedList {
 	this.tail = newNode;
     }
 
-    public void insertSorted(Node newNode) {
+     void insertSorted(Node newNode) {
 	Node current;
 
 	if (headNode == null || headNode.getData() >= newNode.getData()) {
@@ -33,7 +33,7 @@ public class DoublyEndedList {
     }
 
     @Override
-    public String toString() {
+     public String toString() {
 	String result = "{";
 	Node currentNode = this.headNode;
 

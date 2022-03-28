@@ -1,7 +1,7 @@
-package lecture4;
+package lecture4_stack_queue;
 
 
-public class QueueLinkedList {
+class QueueLinkedList {
     // front = headNode, tailNode = rear;
     Node headNode, tailNode;
 

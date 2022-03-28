@@ -1,16 +1,16 @@
-package lecture3;
+package lecture3_linked_list;
 
-public class LinkedList {
+ class LinkedList {
     // head of the list
     private Node head;
 
-    public void insertAtHead(int data) {
+     void insertAtHead(int data) {
 	Node newNode = new Node(data);
 	newNode.setNextNode(this.head);
 	this.head = newNode;
     }
 
-    public int length() {
+     int length() {
 	int length = 0;
 	Node curreNode = this.head;
 
@@ -21,11 +21,11 @@ public class LinkedList {
 	return length;
     }
 
-    public void deleteFromHead() {
+     void deleteFromHead() {
 	this.head = head.getNextNode();
     }
 
-    public Node find(int data) {
+     Node find(int data) {
 	Node currentNode = this.head;
 
 	while (currentNode != null) {
@@ -38,7 +38,7 @@ public class LinkedList {
     }
 
     @Override
-    public String toString() {
+     public String toString() {
 	String result = "";
 	Node current = this.head;
 

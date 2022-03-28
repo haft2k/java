@@ -1,7 +1,7 @@
-package lecture3;
+package lecture3_linked_list;
 
-public class DoublyEndedListDemo {
-    public static void main(String[] args) {
+ class DoublyEndedListDemo {
+     static void main(String[] args) {
 	DoublyEndedList dList = new DoublyEndedList();
 
 	dList.insertAtTail(19);

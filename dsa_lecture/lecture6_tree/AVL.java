@@ -1,8 +1,8 @@
-package lecture6;
+package lecture6_tree;
 
 import java.util.Scanner;
 
-public class AVL {
+class AVL {
     TreeNode node;
 
     /**

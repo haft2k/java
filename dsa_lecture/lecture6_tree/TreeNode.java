@@ -1,4 +1,4 @@
-package lecture6;
+package lecture6_tree;
 
 class TreeNode {
     private int data;

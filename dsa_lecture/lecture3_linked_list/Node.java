@@ -1,30 +1,30 @@
-package lecture3;
+package lecture3_linked_list;
 
 class Node {
-    public int data;
+     int data;
     private Node nextNode;
 
     // Constructor to create a new node
     // Next is by default initialized
     // as null
 
-    public Node(int data) {
+     Node(int data) {
 	this.data = data;
     }
 
-    public int getData() {
+     int getData() {
 	return data;
     }
 
-    public void setData(int data) {
+     void setData(int data) {
 	this.data = data;
     }
 
-    public Node getNextNode() {
+     Node getNextNode() {
 	return nextNode;
     }
 
-    public void setNextNode(Node nextNode) {
+     void setNextNode(Node nextNode) {
 	this.nextNode = nextNode;
     }
 

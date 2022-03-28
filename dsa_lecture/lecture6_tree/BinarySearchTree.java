@@ -1,6 +1,7 @@
+package lecture6_tree;
 //package lecture6;
 //
-//public class BinarySearchTree {
+//class BinarySearchTree {
 //    private Node rootNode;
 //
 //    /**
