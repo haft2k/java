@@ -21,29 +21,29 @@ public class Queue<T> {
 
     // check empty list
     boolean isEmpty() {
-	return (headNode == null);
+	return (this.headNode == null);
     }
 
     /**
-     *  method enqueue add item to
+     * method enqueue add item to
      **/
     void enQueue(T item) {
 	Node<T> temp = new Node<T>(item);
 
 	if (isEmpty()) {
-	    headNode = tailNode = temp;
+	    this.headNode = this.tailNode = temp;
 	    return;
 	}
 
-	tailNode.setNextNode(temp);
-	tailNode = temp;
+	this.tailNode.setNextNode(temp);
+	this.tailNode = temp;
     }
 
     /**
      * Dequeue delete item head
+     * @return
      **/
-    public T deQueue() {
-	T item = headNode.getInfo();
+    T deQueue() {
 
 	// check empty list
 	if (isEmpty()) {
@@ -51,16 +51,33 @@ public class Queue<T> {
 	    return null;
 	}
 
-	// list have 1 item
-	if (headNode == tailNode) {
-	    headNode = tailNode = null;
+	// Store previous front and move front one node ahead
+	Node<T> item = this.headNode;
+	this.headNode = this.headNode.getNextNode();
+
+	// If front becomes NULL, then change rear also as NULL
+	if (this.headNode == null) {
+	    this.tailNode = null;
 	}
 
-	// change headNode to next node
-	headNode = headNode.getNextNode();
-	return item;
+	return item.getInfo();
     }
 
+    /**
+     * printQueue First in First out
+     */
+    void printQueue(Queue<T> queue) {
+	if (isEmpty()) {
+	    return;
+	}
 
+	Node head = headNode;
+
+	while (head != null) {
+	    System.out.println(head.getInfo());
+	    head = head.getNextNode();
+	}
+
+    }
 
 }

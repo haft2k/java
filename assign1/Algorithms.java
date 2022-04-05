@@ -105,8 +105,11 @@ public class Algorithms {
 
     public float[] bubbleSort(float[] arr) {
 	float[] copyArray = copyArray(arr);
+	
 	for (int i = 0; i < copyArray.length - 1; i++) {
+
 	    boolean isSorted = false;
+
 	    for (int j = 0; j < copyArray.length - 1 - i; j++) {
 		if (copyArray[j] > copyArray[j + 1]) {
 		    isSorted = true;
@@ -268,6 +271,7 @@ public class Algorithms {
 
     }
 
+    
     public float[] copyArray(float[] arr) {
 	float[] copyArray = new float[arr.length];
 	for (int i = 0; i < arr.length; i++) {

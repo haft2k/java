@@ -9,16 +9,16 @@ public class Main {
 	System.out.println("please enter number");
 	int n = scan.nextInt();
 
-	TreeNode TreeNode = null;
+	Node tree = null;
 	for (int i=0; i<n; i++) {
-	    insert(TreeNode, scan.nextInt());
+	    tree.insert(tree, scan.nextInt());
 	}
 
-	while (!checkAvl(TreeNode)) {
-	    updateTreeAvl(TreeNode);
+	while (!checkAvl(tree)) {
+	    updateTreeAvl(tree);
 	}
 
-	System.out.println(treeLevel(TreeNode));
+	System.out.println(treeLevel(tree));
 
     }
 }

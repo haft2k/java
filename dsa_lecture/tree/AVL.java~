@@ -1,7 +1,5 @@
 package lecture6_tree;
 
-import java.util.Scanner;
-
 class AVL {
     TreeNode node;
 
@@ -9,14 +7,7 @@ class AVL {
      * Constructor class AVL
      */
     AVL() {
-	node = null;
-    }
-
-    /**
-     * Function check
-     */
-    boolean isEmpty() {
-	return node == null;
+	
     }
 
     /**
@@ -27,6 +18,7 @@ class AVL {
      */
      int treeLevel(TreeNode node) {
 	if (node == null) {return -1;}
+
 	// update height of this ancestor TreeNode
 	return 1 + Math.max(treeLevel(node.getLeft()),
 		       treeLevel(node.getRight()));
@@ -42,7 +34,9 @@ class AVL {
      TreeNode insert(TreeNode node, int data) {
 	if (node == null) {
 	    return (new TreeNode(data));
+
 	} else {
+	    //
 	    if (data < node.getData()) {
 		node.setLeft( insert(node.getLeft(), data) );
 
@@ -153,6 +147,8 @@ class AVL {
 	return node;
 
     }
+}
+
 
 
 

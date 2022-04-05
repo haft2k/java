@@ -53,7 +53,7 @@ public class Main {
 
 	    /**
 	     *
-	     *  function 1 to 10 follow by menu()
+	     * function 1 to 10 follow by menu()
 	     *
 	     */
 
@@ -63,6 +63,7 @@ public class Main {
 	    case 1: {
 		list = new MyList<Product>();
 		operation.getAllItemsFromFile("data.txt", list);
+		operation.displayAll(list);
 
 		System.out.println("Data complete save to file data.txt");
 
@@ -74,7 +75,7 @@ public class Main {
 	    // file data.txt
 	    case 2: {
 		operation.addLast(list);
-		//operation.writeAllItemsToFile("data.txt", list);
+		// operation.writeAllItemsToFile("data.txt", list);
 		break;
 
 	    }
@@ -88,6 +89,7 @@ public class Main {
 	    // data in list save to data.txt
 	    case 4: {
 		operation.writeAllItemsToFile("data.txt", list);
+		System.out.println("Successfully!");
 		break;
 	    }
 
@@ -104,13 +106,47 @@ public class Main {
 		operation.deleteByCode(list);
 		operation.writeAllItemsToFile("data.txt", list);
 		operation.displayAll(list);
+		System.out.println("Deleted done!");
+
 		break;
 	    }
 
-	    // sorting follow alphalet
+	    // sorting follow alphabet
 	    case 7: {
-		operation.sortByCode(list);
+		Node<Product> endNode = list.headNode;
+		while (endNode != null) {
+		    endNode = endNode.getNextNode();
+		}
+		operation.sort(list, list.headNode, endNode);
+		operation.displayAll(list);
 		break;
+	    }
+
+	    // convert to binary
+	    case 8: {
+		System.out.print("Quantity = " + list.headNode.getInfo().quantity + " ==> ");
+		System.out.println(operation.convertToBinary(list.headNode.getInfo().quantity));
+
+		break;
+	    }
+
+	    // save list to stack and display
+	    case 9: {
+		Stack<Product> stack = new Stack<Product>();
+		operation.getAllItemsFromFile("data.txt", stack);
+		stack.printStack(stack);
+
+		break;
+	    }
+
+	    // save list to queue and display
+	    case 10: {
+		Queue<Product> queue = new Queue<Product>();
+		operation.getAllItemsFromFile("data.txt", queue);
+		queue.printQueue(queue);
+
+		break;
+
 	    }
 
 

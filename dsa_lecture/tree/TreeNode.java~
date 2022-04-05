@@ -42,6 +42,13 @@ class TreeNode {
     }
 }
 
+class FuncNode {
+    TreeNode node;
+
+    
+    TreeNode insert(TreeNode node, int data) {
+	if (
+
 
 
 

@@ -113,11 +113,7 @@ class MyList<T> {
 	    System.out.println("Invalid position");
 	}
 
-	/**
-	 * position is first ==> headNode is new_node
-	 *
-	 **/
-
+	// position is first ==> headNode is new_node
 	if (position == 1) {
 	    new_node.setNextNode(this.headNode);
 	    this.headNode = new_node;
@@ -198,75 +194,6 @@ class MyList<T> {
 	prevNode.setNextNode(tempNode.getNextNode());
     }
 
-    /**
-     * Swaping two nodes [firstNode] and [secondNode]
-     *
-     * @param firstNode
-     *
-     * @param secondNode
-     */
-
-    public void swap(Node<T> firstNode, Node<T> secondNode) {
-
-	// Nothing to do if firstNode and secondNode are same
-	if (firstNode.getInfo() == secondNode.getInfo()) {
-	    return;
-	}
-
-	// Search for firstNode (keep track of prevFirstNode and tempNodeFirstNode)
-	Node<T> tempNode1 = headNode;
-	Node<T> prevNode1 = null;
-
-	while (tempNode1.getNextNode() != null && tempNode1.getInfo() != firstNode.getInfo()) {
-	    prevNode1 = tempNode1;
-	    tempNode1 = tempNode1.getNextNode();
-	}
-
-	// Search for secondNode (keep track of prevSecondNode and tempNodeSecondNode)
-	Node<T> tempNode2 = headNode;
-	Node<T> prevNode2 = null;
-
-	while (tempNode2.getNextNode() != null && tempNode2.getInfo() != secondNode.getInfo()) {
-	    prevNode2 = tempNode2;
-	    tempNode2 = tempNode2.getNextNode();
-	}
-
-	// If either tempFirstNode or tempSecondNode is not present
-	// nothing to do
-	if (tempNode1 != null || tempNode2 != null) {
-
-	    // If previous node to node1 is not null then,
-	    // it will point to node2
-	    if (prevNode1 != null) {
-		prevNode1.setNextNode(tempNode2);
-	    } else {
-		headNode = tempNode2;
-	    }
-
-	    // If previous node to node2 is not null then,
-	    // it will point to node1
-	    if (prevNode2 != null) {
-		prevNode2.setNextNode(tempNode1);
-	    } else {
-		headNode = tempNode2;
-	    }
-
-	    // Swaps the next nodes of node1 and node2
-	    Node<T> temp = tempNode1.getNextNode();
-	    tempNode1.setNextNode(tempNode2.getNextNode());
-	    tempNode2.setNextNode(temp);
-
-	}
-
-    }
-
-    /**
-     * Deleteing all item in the list
-     */
-
-    void clear() {
-	headNode = tailNode = null;
-    }
 
     /**
      * print list

@@ -1,8 +1,9 @@
-package assign2;
+package assignment2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,36 +12,6 @@ import java.util.Scanner;
 class OperationToProduct {
     // Create scanner input from keyboard
     Scanner scanner = new Scanner(System.in);
-
-    /**
-     *
-     * Searching and returning the index of product p in the list. If not found
-     *
-     * return -1.
-     *
-     * @param p    Product for searching
-     *
-     * @param list The Linked List
-     *
-     * @return The index of product p in the list
-     *
-     */
-
-    public int index(Product p, MyList<Product> list) {
-
-    }
-
-    /**
-     *
-     * Creating and returning a product with info input from keyboard.
-     *
-     * @return The product
-     *
-     */
-
-    Product createProduct() {
-
-    }
 
     /**
      *
@@ -57,13 +28,13 @@ class OperationToProduct {
 	    FileWriter fileWrite = new FileWriter(fileName);
 	    BufferedWriter buffer = new BufferedWriter(fileWrite);
 
-	    Node<Product> temp = list.headNode;
+	    Node<Product> currentNode = list.headNode;
 
 	    String text = "";
 
-	    while (temp != null) {
-		text += temp.toString() + "\n";
-		temp = temp.getNextNode();
+	    while (currentNode != null) {
+		text += currentNode.toString() + "\n";
+		currentNode = currentNode.getNextNode();
 	    }
 
 	    // write Product to file data.txt
@@ -92,32 +63,33 @@ class OperationToProduct {
 
 	    InputStream inputStream = new FileInputStream(fileName);
 	    InputStreamReader inputReader = new InputStreamReader(inputStream);
-	    try (BufferedReader reader = new BufferedReader(inputReader)) {
+	    BufferedReader reader = new BufferedReader(inputReader);
 
-		String[] arr = null;
-		String line = reader.readLine();
+	    String[] arr = null;
+	    String line = reader.readLine();
 
-		while (line != null) {
+	    while (line != null) {
 
-		    arr = line.split("  \\|  ");
+		arr = line.split("  \\|  ");
 
-		    line = reader.readLine();
-		    // System.out.println(line);
+		line = reader.readLine();
 
-		    // create variable compare Product with arr[0... len-1] add variable to Product
-		    // and insert to list at tail
+		// create variable compare Product with arr[0... len-1]
+		// add variable to Product
+		// and insert to list at tail
 
-		    String bcode = arr[0];
-		    String title = arr[1];
-		    int quantity = Integer.parseInt(arr[2]);
-		    double price = Double.parseDouble(arr[3]);
+		String bcode = arr[0];
+		String title = arr[1];
+		int quantity = Integer.parseInt(arr[2]);
+		double price = Double.parseDouble(arr[3]);
 
-		    Product product = new Product(bcode, title, quantity, price);
+		Product product = new Product(bcode, title, quantity, price);
 
-		    list.insertToTail(product);
+		list.insertToTail(product);
 
-		}
 	    }
+
+	    reader.close();
 
 	} catch (Exception e) {
 	    // TODO Auto-generated catch block
@@ -133,6 +105,7 @@ class OperationToProduct {
      * @param fileName The file name of the file
      *
      * @param stack    The Stack contains all products that read from file
+     * @throws FileNotFoundException
      *
      */
 
@@ -153,7 +126,7 @@ class OperationToProduct {
 		// Read by line
 		line = reader.readLine();
 
-		// create variable compare Product with arr[0... len-1]
+		// compare Product with arr[0... length-1]
 		// add variable to Product
 		// and insert to stack
 
@@ -165,13 +138,14 @@ class OperationToProduct {
 		Product product = new Product(bcode, title, quantity, price);
 
 		stack.push(product);
+
 	    }
+	    reader.close();
 
 	} catch (Exception e) {
 	    // TODO
 	    e.printStackTrace();
 	}
-		    		
     }
 
     /**
@@ -188,10 +162,34 @@ class OperationToProduct {
 	try {
 	    InputStream inputStream = new FileInputStream(fileName);
 	    InputStreamReader inputReader = new InputStreamReader(inputStream);
-	    BufferedReader reader = new BufferredReader(inputReader);
+	    BufferedReader reader = new BufferedReader(inputReader);
 
-	    // User array save product
-	    // pu
+	    String[] arr = null;
+	    String line = reader.readLine();
+
+	    while (line != null) {
+		arr = line.split("  \\|  ");
+		line = reader.readLine();
+
+		// Create variable compare Product with arr[0 .... len-1]
+		// add variable to Product
+		// and insert to list at tail
+
+		String bcode = arr[0];
+		String title = arr[1];
+		int quantity = Integer.parseInt(arr[2]);
+		double price = Double.parseDouble(arr[3]);
+
+		Product product = new Product(bcode, title, quantity, price);
+
+		queue.enQueue(product);
+
+	    }
+	} catch (Exception e) {
+
+	}
+
+
     }
 
     /**
@@ -219,8 +217,8 @@ class OperationToProduct {
 	System.out.print("input price: ");
 	price = Double.parseDouble(scanner.nextLine());
 
-	Product temp = new Product(bcode, title, quantity, price);
-	list.insertToTail(temp);
+	Product currentNode = new Product(bcode, title, quantity, price);
+	list.insertToTail(currentNode);
 
     }
 
@@ -231,7 +229,6 @@ class OperationToProduct {
      * @param list The linked list
      *
      */
-
     void addFirst(MyList<Product> list) {
 	String bcode, title;
 	int quantity;
@@ -249,8 +246,8 @@ class OperationToProduct {
 	System.out.print("input price: ");
 	price = Double.parseDouble(scanner.nextLine());
 
-	Product temp = new Product(bcode, title, quantity, price);
-	list.insertToHead(temp);
+	Product currentNode = new Product(bcode, title, quantity, price);
+	list.insertToHead(currentNode);
     }
 
     /**
@@ -260,19 +257,18 @@ class OperationToProduct {
      * @param list
      *
      */
-
     void searchByCode(MyList<Product> list) {
 	System.out.print("Search by ID: ");
 	String idString = scanner.nextLine();
 
-	Node<Product> temp = list.headNode;
+	Node<Product> currentNode = list.headNode;
 	int count = 0;
-	while (temp != null) {
-	    if (idString.equalsIgnoreCase(temp.getInfo().bcode)) {
-		System.out.println(temp.toString());
+	while (currentNode != null) {
+	    if (idString.equalsIgnoreCase(currentNode.getInfo().bcode)) {
+		System.out.println(currentNode.toString());
 		count++;
 	    }
-	    temp = temp.getNextNode();
+	    currentNode = currentNode.getNextNode();
 	}
 
 	if (count == 0) {
@@ -293,17 +289,70 @@ class OperationToProduct {
 	System.out.print("Delete by ID: ");
 	String idString = scanner.nextLine();
 
-	Node<Product> temp = list.headNode;
+	Node<Product> currentNode = list.headNode;
 
-	while (temp != null) {
-	    if (idString.equalsIgnoreCase(temp.getInfo().bcode)) {
-		list.deleteElement(temp.getInfo());
+	while (currentNode != null) {
+	    if (idString.equalsIgnoreCase(currentNode.getInfo().bcode)) {
+		list.deleteElement(currentNode.getInfo());
 	    }
 
-	    temp = temp.getNextNode();
+	    currentNode = currentNode.getNextNode();
 	}
     }
 
+    /**
+     *
+     */
+    Node<Product> partition(MyList<Product> list, Node<Product> start, Node<Product> end) {
+	if (start == end || start == null || end == null) {
+	    return start;
+	}
+
+	// set pivot index end
+	Node<Product> pivot = end;
+	Node<Product> pivot_prev = start;
+
+	// index
+	Node<Product> i = start;
+
+	while (start != end) {
+	    if ((start.getInfo().bcode).compareTo(pivot.getInfo().bcode) > 0) {
+
+		pivot_prev = i;
+		Product temp = i.getInfo();
+		i.setInfo(start.getInfo());
+		start.setInfo(temp);
+
+		i = i.getNextNode();
+	    }
+	    start = start.getNextNode();
+	}
+
+	// swap the position of index
+	Product temp = i.getInfo();
+	i.setInfo(pivot.getInfo());
+	end.setInfo(temp);
+
+	// return one previous to current
+	return pivot_prev;
+    }
+
+    void sort(MyList<Product> list, Node<Product> start, Node<Product> end) {
+	if (start == null || start == end || start == end.getNextNode()) {
+	    return;
+	}
+
+	Node<Product> pivot_prev = partition(list, start, end);
+	sort(list, start, pivot_prev);
+
+	if (pivot_prev != null && pivot_prev == start) {
+	    sort(list, pivot_prev.getNextNode(), end);
+
+	} else if (pivot_prev != null && pivot_prev.getNextNode() != null) {
+	    sort(list, pivot_prev.getNextNode().getNextNode(), end);
+	}
+
+    }
     /**
      *
      * Sorting products in linked list by ID
@@ -311,22 +360,32 @@ class OperationToProduct {
      * @param list The Linked list
      *
      */
-
     void sortByCode(MyList<Product> list) {
 
-	Node<Product> temp = list.headNode;
-	if (list.isEmpty()) {
-	    System.out.println("helo");
-	} else {
-	    System.out.println(temp.toString());
+	Node<Product> currentNode = list.headNode;
+	Node<Product> indexNode = null;
+
+	while (currentNode != null) {
+	    indexNode = currentNode.getNextNode();
+
+	    while (indexNode != null) {
+		// if compareTO <= 0 keep position currentNode && indexNode
+		if ((currentNode.getInfo().bcode).compareTo(indexNode.getInfo().bcode) > 0) {
+		    Product temp = currentNode.getInfo();
+		    currentNode.setInfo(indexNode.getInfo());
+		    indexNode.setInfo(temp);
+
+		}
+		indexNode = indexNode.getNextNode();
+	    }
+	    currentNode = currentNode.getNextNode();
 	}
     }
 
     /**
      *
      * Convert a decimal to of binary. Example: input i = 18
-     * -> Output = 010001
-     * Use recursion convert
+     * --> Output = 10001
      *
      * @param i Input decimal number
      *
@@ -342,22 +401,6 @@ class OperationToProduct {
 	else {
 	    return (i % 2 + 10 * convertToBinary(i / 2));
 	}
-
-    }
-
-    /**
-     *
-     * Deleting the product at position
-     *
-     * @param list The Linked List
-     *
-     * @param pos  The position of product to be deleted
-     *
-     */
-
-    void deleteAtPosition(MyList<Product> list, int pos) {
-	int countPos = 0;
-
 
     }
 
