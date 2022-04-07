@@ -1,5 +1,6 @@
 package assignment2;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -33,7 +34,7 @@ public class Main {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	Scanner scanner = new Scanner(System.in);
 	OperationToProduct operation = new OperationToProduct();
 	MyList<Product> list = new MyList<Product>();
@@ -65,6 +66,7 @@ public class Main {
 		operation.getAllItemsFromFile("data.txt", list);
 		operation.displayAll(list);
 
+		operation.writeFilePrintStream("console_output.txt", list);
 		System.out.println("Data complete save to file data.txt");
 
 		break;
@@ -90,6 +92,11 @@ public class Main {
 	    case 4: {
 		operation.writeAllItemsToFile("data.txt", list);
 		System.out.println("Successfully!");
+		System.out.println();
+
+		/* write to console.txt */
+		operation.writeFilePrintStream("console_output.txt", list);
+
 		break;
 	    }
 
@@ -108,24 +115,24 @@ public class Main {
 		operation.displayAll(list);
 		System.out.println("Deleted done!");
 
+		/* write to console.txt */
+		operation.writeFilePrintStream("console_output.txt", list);
 		break;
 	    }
 
 	    // sorting follow alphabet
 	    case 7: {
-		Node<Product> endNode = list.headNode;
-		while (endNode != null) {
-		    endNode = endNode.getNextNode();
-		}
-		operation.sort(list, list.headNode, endNode);
-		operation.displayAll(list);
+		operation.sortByCode(list);
+		/* write to console.txt */
+		operation.writeFilePrintStream("console_output.txt", list);
+
 		break;
 	    }
 
 	    // convert to binary
 	    case 8: {
 		System.out.print("Quantity = " + list.headNode.getInfo().quantity + " ==> ");
-		System.out.println(operation.convertToBinary(list.headNode.getInfo().quantity));
+		operation.convertToBinary(list.headNode.getInfo().quantity);
 
 		break;
 	    }
@@ -136,6 +143,8 @@ public class Main {
 		operation.getAllItemsFromFile("data.txt", stack);
 		stack.printStack(stack);
 
+		operation.writeFilePrintStream("console_output.txt", list);
+
 		break;
 	    }
 
@@ -144,6 +153,7 @@ public class Main {
 		Queue<Product> queue = new Queue<Product>();
 		operation.getAllItemsFromFile("data.txt", queue);
 		queue.printQueue(queue);
+		operation.writeFilePrintStream("console_output.txt", list);
 
 		break;
 

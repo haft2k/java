@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 class OperationToProduct {
@@ -193,6 +196,29 @@ class OperationToProduct {
     }
 
     /**
+     * write file with printStream
+     * @throws IOException
+     */
+    void writeFilePrintStream(String fileName, MyList<Product> list) throws IOException {
+	// creates a FileOutputStream
+	//
+	FileOutputStream file = new FileOutputStream(fileName, true);
+	PrintStream pout = new PrintStream(file);
+
+	Node<Product> current = list.headNode;
+
+	while (current != null) {
+	    pout.println(current.getInfo());
+	    current = current.getNextNode();
+	}
+	pout.println();
+
+	pout.close();
+	file.close();
+	System.out.println("Success.....");
+    }
+
+    /**
      *
      * Adding a product to the list, info of the product input from keyboard.
      *
@@ -302,59 +328,6 @@ class OperationToProduct {
 
     /**
      *
-     */
-    Node<Product> partition(MyList<Product> list, Node<Product> start, Node<Product> end) {
-	if (start == end || start == null || end == null) {
-	    return start;
-	}
-
-	// set pivot index end
-	Node<Product> pivot = end;
-	Node<Product> pivot_prev = start;
-
-	// index
-	Node<Product> i = start;
-
-	while (start != end) {
-	    if ((start.getInfo().bcode).compareTo(pivot.getInfo().bcode) > 0) {
-
-		pivot_prev = i;
-		Product temp = i.getInfo();
-		i.setInfo(start.getInfo());
-		start.setInfo(temp);
-
-		i = i.getNextNode();
-	    }
-	    start = start.getNextNode();
-	}
-
-	// swap the position of index
-	Product temp = i.getInfo();
-	i.setInfo(pivot.getInfo());
-	end.setInfo(temp);
-
-	// return one previous to current
-	return pivot_prev;
-    }
-
-    void sort(MyList<Product> list, Node<Product> start, Node<Product> end) {
-	if (start == null || start == end || start == end.getNextNode()) {
-	    return;
-	}
-
-	Node<Product> pivot_prev = partition(list, start, end);
-	sort(list, start, pivot_prev);
-
-	if (pivot_prev != null && pivot_prev == start) {
-	    sort(list, pivot_prev.getNextNode(), end);
-
-	} else if (pivot_prev != null && pivot_prev.getNextNode() != null) {
-	    sort(list, pivot_prev.getNextNode().getNextNode(), end);
-	}
-
-    }
-    /**
-     *
      * Sorting products in linked list by ID
      *
      * @param list The Linked list
@@ -384,24 +357,37 @@ class OperationToProduct {
 
     /**
      *
-     * Convert a decimal to of binary. Example: input i = 18
-     * --> Output = 10001
+     * Convert a decimal to of binary.
+     * Example: input i = 18 -->  10001
      *
-     * @param i Input decimal number
+     * @param num Input decimal number
      *
      * @return binary numbers
      *
      */
 
-    int convertToBinary(int i) {
-	if (i == 0) {
-	    return 0;
+    int[] convertToBinary(int num) {
+	int[] arr = new int[100000];
+	int count = 0;
+
+	/* calculate decimal to binary
+	 * count original value before being incremented
+	 *
+	 */
+	while (num > 0) {
+	    int binary = num % 2;
+	    arr[count++] = binary;
+	    num /= 2;
+
 	}
 
-	else {
-	    return (i % 2 + 10 * convertToBinary(i / 2));
+	// print index last to first
+	for (int i=count-1; i>=0; i--) {
+	    System.out.print(arr[i]);
 	}
+	System.out.println();
 
+	return arr;
     }
 
     /**

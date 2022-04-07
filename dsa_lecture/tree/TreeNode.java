@@ -11,10 +11,11 @@ class TreeNode {
      */
     TreeNode(int data) {
 	this.data = data;
+	right = left = null;
     }
 
     /**
-     * Setter of right && left sub
+     * Setter of right & left sub
      *
      */
     void setRight(TreeNode right) {
@@ -40,4 +41,39 @@ class TreeNode {
     int getData() {
 	return this.data;
     }
-}    
+
+    /**
+     * find node data
+     *
+     * @param data
+     * @return TreeNode
+     */
+    TreeNode find(int data) {
+	if (this.data == data) {
+	    return this;
+	}
+	// left
+	if (this.data < data && getLeft() != null) {
+	    return left.find(data);
+	}
+
+	// right
+	if (this.data > data && getRight() != null) {
+	    return right.find(data);
+	}
+
+	return null;
+
+    }
+
+    /**
+     * inset data
+     *
+     * @param integer
+     *
+     * @return TreeNode
+     */
+    void insert(int data) {
+
+    }
+}
