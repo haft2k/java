@@ -11,7 +11,7 @@ public class MainSort {
 	Scanner scanner = new Scanner(System.in);
 
 	int choice;
-	float[] arr = null;
+	int[] arr = null;
 
 	Algorithms algo = new Algorithms();
 
@@ -35,12 +35,12 @@ public class MainSort {
 	    case 1: {
 		System.out.print("Input number of elements: ");
 		int inputNumber = Integer.parseInt(scanner.next());
-		arr = new float[inputNumber];
+		arr = new int[inputNumber];
 
-		// use method testElement() random number float
+		// use method testElement() random number int
 		System.out.println("Input elements: ");
 		for (int i = 0; i < inputNumber; i++) {
-		    arr[i] = scanner.nextFloat();
+		    arr[i] = testElemetRandom();
 		}
 
 		algo.writeFile("input.txt", arr);
@@ -60,7 +60,7 @@ public class MainSort {
 	    // Bubbler Sort
 	    case 3: {
 
-		float[] copyArray = algo.bubbleSort(arr);
+		int[] copyArray = algo.bubbleSort(arr);
 		// write file array sort to file output1.txt
 		algo.writeFile("output1.txt", copyArray);
 
@@ -69,7 +69,7 @@ public class MainSort {
 
 	    // Selection sort
 	    case 4: {
-		float[] copyArray = algo.selectionSort(arr);
+		int[] copyArray = algo.selectionSort(arr);
 		// write file array sort to file output2.txt
 		algo.writeFile("output2.txt", copyArray);
 
@@ -78,7 +78,7 @@ public class MainSort {
 
 	    // Insertion Sort
 	    case 5: {
-		float[] copyArray = algo.insertionSort(arr);
+		int[] copyArray = algo.insertionSort(arr);
 		// write file array sort to file output3.txt
 		algo.writeFile("output3.txt", copyArray);
 
@@ -88,7 +88,7 @@ public class MainSort {
 	    // Linear Search
 	    case 6: {
 		System.out.print("Choose number search: ");
-		Float value = Float.parseFloat(scanner.next());
+		int value = Integer.parseInt(scanner.next());
 		algo.search(arr, value);
 		break;
 	    }
@@ -97,11 +97,11 @@ public class MainSort {
 	    case 7: {
 		// Call method insertion Sorting arr to copyArry
 		//
-		float[] copyArray = algo.insertionSort(arr);
+		int[] copyArray = algo.insertionSort(arr);
 		ArrayList<Integer> indexArray = new ArrayList<Integer>();
 
 		System.out.print("Choose number search: ");
-		float value = Float.parseFloat(scanner.next());
+		int value = Integer.parseInt(scanner.next());
 		int a = algo.binarySearch(copyArray, 0, arr.length - 1, value);
 
 		if (a == -1) {
@@ -137,14 +137,14 @@ public class MainSort {
     }
 
     /**
-     * test input elements random number float %.f if use method for test change
+     * test input elements random number int %.f if use method for test change
      * value input element for arr index
      *
      */
-    static float testElemetRandom() {
+    static int testElemetRandom() {
 	Random random = new Random();
-	float rangeRandom = random.nextFloat(100);
-	float rounding = (float) (Math.ceil(rangeRandom * 10) / 10);
+	int rangeRandom = random.nextInt(100);
+	int rounding = (int) (Math.ceil(rangeRandom * 10) / 10);
 	return rounding;
     }
 

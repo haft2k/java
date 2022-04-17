@@ -1,4 +1,3 @@
-package lecture5_recursion;
 
 public class TowerOfHanoi {
 

@@ -78,9 +78,10 @@ class MyList<T> {
 	Node<T> new_node = new Node<T>(item);
 
 	// if linked list empty
-	// make new_node as headNode
+	// make new_node as headNode & tailNode
 	if (isEmpty()) {
 	    this.headNode = new_node;
+	    this.tailNode = new_node;
 	    return;
 	}
 
@@ -90,6 +91,7 @@ class MyList<T> {
 	while (tailNode.getNextNode() != null) {
 	    tailNode = tailNode.getNextNode();
 	}
+
 	// set tailNode next node is new_node
 	tailNode.setNextNode(new_node);
 	return;
@@ -192,6 +194,12 @@ class MyList<T> {
 
 	// unlink the node tempNode
 	prevNode.setNextNode(tempNode.getNextNode());
+
+	// set tail node
+	if (prevNode.getNextNode() == null) {
+	    tailNode = prevNode;
+	}
+
     }
 
 

@@ -1,4 +1,3 @@
-package lab5;
 
 /*
  * Stack is linear structure non-primitive

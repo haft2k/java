@@ -20,17 +20,17 @@ public class Algorithms {
      *
      * @param fileName The file name of file to write value
      *
-     * @param arr      The input float array
+     * @param arr      The input int array
      * @throws IOException
      *
      */
 
-    public void writeFile(String fileName, float[] arr) throws IOException {
+    public void writeFile(String fileName, int[] arr) throws IOException {
 	FileWriter file = new FileWriter(fileName);
 
 	BufferedWriter buffer = new BufferedWriter(file);
 	String text = "";
-	for (float item : arr) {
+	for (int item : arr) {
 	    text += item + "\n";
 	}
 	// Program write array to file input.txt
@@ -57,19 +57,19 @@ public class Algorithms {
 
     /**
      *
-     * Reading the file then input to the array float[] arr
+     * Reading the file then input to the array int[] arr
      *
      * @param fileName The file name of file to read
      *
-     * @param arr      The output float array that will contain value read from file
+     * @param arr      The output int array that will contain value read from file
      * @throws FileNotFoundException
      *
      *
      *
      */
 
-    // return array float arr change value from input.txt
-    public float[] readFile(String fileName, float[] arr) throws IOException {
+    // return array int arr change value from input.txt
+    public int[] readFile(String fileName, int[] arr) throws IOException {
 	File file = new File(fileName);
 	InputStream inputStream = new FileInputStream(file);
 	InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -78,16 +78,16 @@ public class Algorithms {
 	String line;
 	// Use split() breaks a given string
 	// Add to Array String
-	ArrayList<Float> arrListFloat = new ArrayList<Float>();
+	ArrayList<Integer> arrListint = new ArrayList<Integer>();
 
 	while ((line = reader.readLine()) != null) {
-	    float a = Float.parseFloat(line);
-	    arrListFloat.add(a);
+	    int a = Integer.parseInt(line);
+	    arrListint.add(a);
 	}
 
-	arr = new float[arrListFloat.size()];
+	arr = new int[arrListint.size()];
 	for (int i = 0; i < arr.length; i++) {
-	    arr[i] = arrListFloat.get(i);
+	    arr[i] = arrListint.get(i);
 	}
 	System.out.println(Arrays.toString(arr));
 	return arr;
@@ -103,28 +103,30 @@ public class Algorithms {
      *
      */
 
-    public float[] bubbleSort(float[] arr) {
-	float[] copyArray = copyArray(arr);
-	
+    public int[] bubbleSort(int[] arr) {
+	int[] copyArray = copyArray(arr);
+
+	final long startMillis = System.currentTimeMillis();
+
 	for (int i = 0; i < copyArray.length - 1; i++) {
-
 	    boolean isSorted = false;
-
 	    for (int j = 0; j < copyArray.length - 1 - i; j++) {
 		if (copyArray[j] > copyArray[j + 1]) {
 		    isSorted = true;
-		    float temp = copyArray[j];
+		    int temp = copyArray[j];
 		    copyArray[j] = copyArray[j + 1];
 		    copyArray[j + 1] = temp;
 		}
 	    }
 	    display(copyArray);
 
-	    //
 	    if (isSorted == false) {
 		break;
 	    }
 	}
+	final long endMillis = System.currentTimeMillis();
+	final long finalTime = endMillis - startMillis;
+	System.out.println("Bubble Sort: " + finalTime + "ms");
 	return copyArray;
     }
 
@@ -138,9 +140,12 @@ public class Algorithms {
      *
      */
 
-    public float[] selectionSort(float[] arr) {
+    public int[] selectionSort(int[] arr) {
 	int minIndex;
-	float[] copyArray = copyArray(arr);
+	int[] copyArray = copyArray(arr);
+
+	final long startMillis = System.currentTimeMillis();
+
 	for (int i = 0; i < copyArray.length - 1; i++) {
 	    minIndex = i;
 	    for (int j = i + 1; j < copyArray.length; j++) {
@@ -148,13 +153,16 @@ public class Algorithms {
 		    minIndex = j;
 		}
 	    }
-	    float temp = copyArray[minIndex];
+	    int temp = copyArray[minIndex];
 	    copyArray[minIndex] = copyArray[i];
 	    copyArray[i] = temp;
 
 	    display(copyArray);
 
 	}
+	final long endMillis = System.currentTimeMillis();
+	final long finalTime = endMillis - startMillis;
+	System.out.println("Selection Sort: " + finalTime + "ms");
 	return copyArray;
     }
 
@@ -168,13 +176,17 @@ public class Algorithms {
      *
      */
 
-    public float[] insertionSort(float[] arr) {
-	float[] copyArray = copyArray(arr);
+    public int[] insertionSort(int[] arr) {
+	int[] copyArray = copyArray(arr);
+	System.out.print("Running: .... Almost done!!! ---- > ");
+
+	final long startMillis = System.currentTimeMillis();
 
 	for (int i = 1; i < copyArray.length; i++) {
-	    float hold = copyArray[i];
+	    int hold = copyArray[i];
 	    int j = i - 1;
 
+	    /* locate hole position for the element to be insert */
 	    while (j >= 0 && copyArray[j] > hold) {
 		copyArray[j + 1] = copyArray[j];
 		j = j - 1;
@@ -184,6 +196,10 @@ public class Algorithms {
 	    display(copyArray);
 
 	}
+
+	final long endMillis = System.currentTimeMillis();
+	final long finalTime = endMillis - startMillis;
+	System.out.println("Insertion Sort: " + finalTime + "ms");
 	return copyArray;
 
     }
@@ -202,7 +218,7 @@ public class Algorithms {
      *
      */
 
-    public void search(float[] arr, float value) throws IOException {
+    public void search(int[] arr, int value) throws IOException {
 	ArrayList<Integer> indexArray = new ArrayList<Integer>();
 	boolean a = false;
 	System.out.print("Index have number greater than number you want search: ");
@@ -244,10 +260,13 @@ public class Algorithms {
      *
      */
 
-    public int binarySearch(float[] arr, int left, int right, float value) throws IOException {
+    public int binarySearch(int[] arr, int left, int right, int value) throws IOException {
 	int mid = 0;
-
+	if (arr[mid] == value) {
+	    return mid;
+	}
 	if (right >= left) {
+
 	    mid = left + (right - left) / 2;
 
 	    // If the element is present at the
@@ -271,16 +290,15 @@ public class Algorithms {
 
     }
 
-    
-    public float[] copyArray(float[] arr) {
-	float[] copyArray = new float[arr.length];
+    public int[] copyArray(int[] arr) {
+	int[] copyArray = new int[arr.length];
 	for (int i = 0; i < arr.length; i++) {
 	    copyArray[i] = arr[i];
 	}
 	return copyArray;
     }
 
-    void display(float[] arr) {
+    void display(int[] arr) {
 	for (int i = 0; i < arr.length; i++) {
 	    System.out.print(arr[i] + "  ");
 	}

@@ -192,11 +192,11 @@ class OperationToProduct {
 
 	}
 
-
     }
 
     /**
      * write file with printStream
+     *
      * @throws IOException
      */
     void writeFilePrintStream(String fileName, MyList<Product> list) throws IOException {
@@ -317,6 +317,8 @@ class OperationToProduct {
 
 	Node<Product> currentNode = list.headNode;
 
+	// find data node = node delete
+	// use function deleteElement()
 	while (currentNode != null) {
 	    if (idString.equalsIgnoreCase(currentNode.getInfo().bcode)) {
 		list.deleteElement(currentNode.getInfo());
@@ -357,8 +359,7 @@ class OperationToProduct {
 
     /**
      *
-     * Convert a decimal to of binary.
-     * Example: input i = 18 -->  10001
+     * Convert a decimal to of binary. Example: input i = 18 --> 10001
      *
      * @param num Input decimal number
      *
@@ -370,8 +371,8 @@ class OperationToProduct {
 	int[] arr = new int[100000];
 	int count = 0;
 
-	/* calculate decimal to binary
-	 * count original value before being incremented
+	/*
+	 * calculate decimal to binary count original value before being incremented
 	 *
 	 */
 	while (num > 0) {
@@ -382,7 +383,7 @@ class OperationToProduct {
 	}
 
 	// print index last to first
-	for (int i=count-1; i>=0; i--) {
+	for (int i = count - 1; i >= 0; i--) {
 	    System.out.print(arr[i]);
 	}
 	System.out.println();
@@ -401,4 +402,8 @@ class OperationToProduct {
     void displayAll(MyList<Product> list) {
 	list.traverse();
     }
+
+
+
+
 }
