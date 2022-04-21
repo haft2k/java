@@ -1,6 +1,10 @@
-package lecture9_heapsort;
+package sorting;
 
-
+/**
+ * @version 1.00 April 21, 2022 GumBox, Inc
+ * @author github: tdh2000
+ *
+ */
 class HeapSort {
     /**
      * Constructor

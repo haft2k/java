@@ -1,3 +1,4 @@
+package recursion;
 
 public class TowerOfHanoi {
 
@@ -25,5 +26,7 @@ public class TowerOfHanoi {
 	TowerOfHanoi tower = new TowerOfHanoi();
 	tower.move(3, 'A', 'C', 'B');
     }
+
+
 
 }

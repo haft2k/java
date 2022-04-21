@@ -5,17 +5,26 @@ public class Node {
     private Person data;
     private Node nextNode;
 
-    // Constructor
+    /** 
+     * Constructor Parameter
+     * 
+     * @param Person
+     */
     Node(Person data) {
 	this(data, null);
     }
-
+    
+    /** 
+     * Constructor Parameter
+     * 
+     * @param Person
+     */
     Node(Person data, Node nextNode) {
 	this.data = data;
 	this.nextNode = nextNode;
     }
 
-    // getter && setter nextNode
+    /** getter && setter nextNode */
     public Node getNextNode() {
 	return nextNode;
     }

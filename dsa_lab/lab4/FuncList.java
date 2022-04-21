@@ -3,26 +3,27 @@ package lab4;
 public class FuncList {
     Node headNode, tailNode;
 
-    // Constructor
+    /** Constructor default */
     FuncList() {
 	headNode = tailNode = null;
     }
 
-    void clear() {
-	headNode = tailNode = null;
-    }
-
-    boolean isEmpty() {
-	return (headNode == null);
-    }
-
-    // add person
+    /**
+     * Add person into head node
+     * 
+     * @param Object Person
+     */
     void addHead(Person data) {
 	Node nextNode = new Node(data);
 	nextNode.setNextNode(headNode);
 	this.headNode = this.tailNode = nextNode;
     }
 
+    /**
+     * Add person into head node
+     * 
+     * @param Object Person
+     */
     void addTail(Person data) {
 	Node nextNode = new Node(data);
 
@@ -34,7 +35,12 @@ public class FuncList {
 	this.tailNode = nextNode;
     }
 
-    // add multiple person with array String name, Integers age
+    /**
+     * add multiple person
+     * use function add to tail for each person
+     *
+     * @param array String name, Integers age
+     */
     void addMulti(String[] name, int[] age) {
 	Person data;
 
@@ -44,6 +50,7 @@ public class FuncList {
 	}
 
     }
+    
     void swapNode(Node currentNode, Node indexNode) {
 	Person temp = currentNode.getData();
 	currentNode.setData(indexNode.getData());
@@ -51,35 +58,43 @@ public class FuncList {
 
     }
 
+    /**
+     * compareTo() compare two node data
+     * function swap two node if compareTo() > 0
+     *
+     */
     void sortByName() {
 	Node currentNode = headNode;
 	Node indexNode = null;
 
 	if (headNode == null) {
 	    return;
+	    
 	} else {
+	    
 	     while (currentNode != null) {
 		indexNode = currentNode.getNextNode();
 
 		while (indexNode != null) {
-
+		    
 		    if ((currentNode.getData().name).compareTo(indexNode.getData().name) > 0) {
 			swapNode(currentNode, indexNode);
 		    }
-
+		    
 		    indexNode = indexNode.getNextNode();
 		}
+		
 		currentNode = currentNode.getNextNode();
 	    }
 	}
     }
 
-    // visit
+    /** display data on node */
     void visit(Node node) {
 	System.out.print(node.getData() + "\n");
     }
 
-    // Visit multiple Node
+    /** Display all Node */
     void traverse() {
 	Node nextNode = headNode;
 

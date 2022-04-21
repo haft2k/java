@@ -11,8 +11,7 @@
  * accordance with the terms of the license agreement you entered into
  * with GumBox
  */
-package lab4;
-// import blah blah .....
+package stack_queues;
 
 /**
  * @version 1.00 April 21, 2022 GumBox, Inc
@@ -21,17 +20,13 @@ package lab4;
  */
 public class Main {
     public static void main(String[] args) {
-	FuncList list = new FuncList();
-	String[] name = { "HOA", "HA", "LAN", "NOI", "MUA", "NAY" };
-	int[] age = { 25, 17, 26, 19, 23, 21 };
-
-	list.addMulti(name, age);
-	list.traverse();
-
-	list.sortByName();
+	Stack tStack = new Stack();
+	int a = 12;
+	tStack.convertToBinary(a);
 	System.out.println();
-	list.traverse();
+
+	// test function
+	// converToBinary(int a)
+	System.out.print(Integer.toBinaryString(a));
     }
-
-
 }

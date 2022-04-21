@@ -1,4 +1,5 @@
-package lab6;
+package recursion;
+
 
 import java.util.Scanner;
 

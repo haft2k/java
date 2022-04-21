@@ -3,29 +3,23 @@ package lab3;
 public class FuncList {
     Node headNode, tailsNode;
 
+    /** Constructor default */
     public FuncList() {
 	headNode = tailsNode = null;
     }
 
-    // Node empty
-    boolean isEmpty() {
-	return (this.headNode == null);
-    }
-
-    // Clear Node
-    void clear() {
-	this.headNode = this.tailsNode = null;
-    }
-
-    // Insert at head list
+    /** Insert at head list */
     void insertAtHead(int data) {
 	Node nextNode = new Node(data);
-	nextNode.setNextNode(headNode);
+
+	nextNode.setLink(headNode);
+
 	this.headNode = nextNode;
 	this.tailsNode = nextNode;
 
     }
 
+    /** insert data at tail */
     void insertAtTail(int data) {
 	Node nextNode = new Node(data);
 
@@ -33,17 +27,24 @@ public class FuncList {
 	    this.headNode = nextNode;
 	    this.tailsNode = nextNode;
 	}
-	this.tailsNode.setNextNode(nextNode);
+
+	this.tailsNode.setLink(nextNode);
 	this.tailsNode = nextNode;
     }
 
-    // Insert multiple element at head list
+    /** Insert multiple element at head list */
     void insertMulti(int[] arr) {
 	for (int i = arr.length - 1; i >= 0; i--) {
 	    insertAtHead(arr[i]);
 	}
     }
 
+    /**
+     * linear search value
+     * next node if data not equal value search
+     *
+     * @param integer
+     */
     void search(int value) {
 	Node current = headNode;
 	int i = 0;
@@ -56,7 +57,7 @@ public class FuncList {
 		    break;
 		}
 		i++;
-		current = current.getNextNode();
+		current = current.getLink();
 	    }
 	    System.out.println("found index: " + i);
 	}
@@ -73,10 +74,15 @@ public class FuncList {
 	Node nextNode = headNode;
 
 	while (nextNode != null) {
-	    nextNode = nextNode.getNextNode();
+	    nextNode = nextNode.getLink();
 	}
     }
 
+    /**
+     * @override toString()
+     *
+     * @return String
+     */
     @Override
     public String toString() {
 	String result = "";
@@ -85,7 +91,7 @@ public class FuncList {
 
 	while (currentNode != null) {
 	    result += currentNode.toString() + "  ";
-	    currentNode = currentNode.getNextNode();
+	    currentNode = currentNode.getLink();
 	}
 	result += "}";
 	return result;

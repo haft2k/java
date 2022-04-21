@@ -1,5 +1,9 @@
-package lecture6_tree;
-
+package tree;
+/**
+ * @version 1.00 April 21, 2022 GumBox, Inc
+ * @author github: tdh2000
+ *
+ */
 class BinarySearchTree {
     private TreeNode rootNode;
 

@@ -1,3 +1,5 @@
+package exercise1;
+
 class Node {
     int data;
     Node left, right;
@@ -19,8 +21,7 @@ class BinaryTree {
     }
 
     /**
-     * search node have greater than parameter
-     * print node
+     * search node have greater than parameter print node
      *
      * @param Node, integer
      *
@@ -28,4 +29,6 @@ class BinaryTree {
      *
      */
     void search(Node node, int data) {
-	
+
+    }
+}

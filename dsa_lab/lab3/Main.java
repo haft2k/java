@@ -11,7 +11,7 @@
  * accordance with the terms of the license agreement you entered into
  * with GumBox
  */
-package lab4;
+package lab3;
 // import blah blah .....
 
 /**
@@ -20,18 +20,27 @@ package lab4;
  *
  */
 public class Main {
+
     public static void main(String[] args) {
-	FuncList list = new FuncList();
-	String[] name = { "HOA", "HA", "LAN", "NOI", "MUA", "NAY" };
-	int[] age = { 25, 17, 26, 19, 23, 21 };
+	/* Call class */
+	FuncList func = new FuncList();
 
-	list.addMulti(name, age);
-	list.traverse();
+	// set array int
+	int[] arr = { 7, 2, 9, 8, 6, 3 };
 
-	list.sortByName();
-	System.out.println();
-	list.traverse();
+	/* function list */
+	func.insertMulti(arr); // { 7, 2, 9, 8, 6, 3 }
+	func.insertAtHead(12); // { 12, 7, 2, 9, 8, 6, 3 }
+	System.out.println(func.toString());
+
+	func.search(3); // index 6
+
+	// test method visit
+	Node node = new Node(12);
+	func.visit(node);
+
+	func.traverse();
+
     }
-
 
 }

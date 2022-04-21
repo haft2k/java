@@ -1,4 +1,4 @@
-package lecture7_graph;
+package graph;
 
 class Graph {
 

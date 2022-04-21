@@ -2,12 +2,16 @@ package lab3;
 
 class Node {
     private int data;
-    private Node nextNode;
+    private Node link;
 
-    // Constructor
+    /**
+     * Constructor parameter
+     *
+     * @param integer & Node
+     */
     Node(int data, Node newNode) {
 	this.data = data;
-	this.nextNode = newNode;
+	this.link = newNode;
     }
 
     Node(int data) {
@@ -23,14 +27,19 @@ class Node {
 	this.data = data;
     }
 
-    Node getNextNode() {
-	return nextNode;
+    Node getLink() {
+	return link;
     }
 
-    void setNextNode(Node nextNode) {
-	this.nextNode = nextNode;
+    void setLink(Node nextNode) {
+	this.link = nextNode;
     }
 
+    /**
+     * @override toString()
+     *
+     * @return String
+     */
     @Override
     public String toString() {
 	return "" + this.data;

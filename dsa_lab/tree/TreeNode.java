@@ -1,13 +1,18 @@
-package lecture6_tree;
+package tree;
 
+/**
+ * @version 1.00 April 21, 2022 GumBox, Inc
+ * @author github: tdh2000
+ *
+ */
 class TreeNode {
     private TreeNode right;
     private TreeNode left;
-    
+
     private int data;
     int height;
     private boolean isDeleted = false;
-   
+
     /**
      * Constructor
      */
@@ -51,12 +56,12 @@ class TreeNode {
     void isDeleted() {
 	this.isDeleted = true;
     }
-    
+
     /**
      * find node data
      *
      * @param data
-     * 
+     *
      * @return TreeNode
      */
     TreeNode find(int data) {
@@ -97,7 +102,7 @@ class TreeNode {
 	    } else {
 		this.right.insert(data);
 	    }
-	    
+
 	    /* left */
 	    // use recursion find leaf left for new data
 	} else {
@@ -106,8 +111,8 @@ class TreeNode {
 	    } else {
 		this.left.insert(data);
 	    }
-	}	
+	}
     }
-    
-    
+
+
 }

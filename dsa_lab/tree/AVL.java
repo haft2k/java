@@ -1,12 +1,12 @@
-package lecture6_tree;
+package tree;
 
+/**
+ * @version 1.00 April 21, 2022 GumBox, Inc
+ * @author github: tdh2000
+ *
+ */
 class AVL {
     TreeNode rootNode;
-    /**
-     * Constructor class AVL
-     */
-    AVL() {
-    }
 
     /**
      * a utility function to get the height of the tree
@@ -16,11 +16,13 @@ class AVL {
      * @return integer
      */
     int height(TreeNode node) {
-	if (node == null) { return 0; }
+	if (node == null) {
+	    return 0;
+	}
 
 	return node.height;
     }
-    
+
     /**
      * Calculator 1 + max compare left && right
      *
@@ -32,14 +34,15 @@ class AVL {
 	if (node == null) {
 	    return -1;
 	}
+
 	// update height of this ancestor TreeNode
-	return 1 + Math.max(treeLevel(node.getLeft()), treeLevel(node.getRight()));
+	return Math.max(treeLevel(node.getLeft()), treeLevel(node.getRight()));
 
     }
 
     /**
      * use calculator height check AVL balance
-     * 
+     *
      * @param TreeNode
      *
      * @return boolean
@@ -60,52 +63,59 @@ class AVL {
     /**
      * Right rotation technique Change TreeNode b become node, TreeNode a is
      * rightChild of b TreeNode d of rightChild TreeNode b, change to leftChild of a
+     * node / b \ d
      *
      * @param TreeNode
      *
-     * @return 
+     * @return TreeNode
      */
     TreeNode rightRotation(TreeNode node) {
 	TreeNode b = node.getLeft();
 	TreeNode d = b.getRight();
 
+	/* rotation */
 	node.setLeft(d);
 	b.setRight(node);
 
 	/* update heights */
-	node.height = 
+	node.height = treeLevel(node) + 1;
+	b.height = treeLevel(b) + 1;
 
-	
+	/* return new root */
 	return b;
     }
 
     /**
      * Left rotation technique Change TreeNode b become node, TreeNode a is
-     * leftChild of b TreeNode d of leftChild TreeNode b
-     * change to rightChild of a
+     * leftChild of b TreeNode d of leftChild TreeNode b change to rightChild of a
+     * node \ b / d
      *
-     * return new TreeNode like node
+     * @param TreeNode
+     *
+     * @return TreeNode
      */
     TreeNode leftRotation(TreeNode node) {
 	TreeNode b = node.getRight();
 	TreeNode d = b.getLeft();
 
+	/* rotation */
 	node.setRight(d);
 	b.setLeft(node);
 
 	/* update heights */
-	
+	node.height = treeLevel(node) + 1;
+	b.height = treeLevel(b) + 1;
+
+	/* return new root */
 	return b;
     }
 
     /**
-     * 1. insert data to tree
-     * 2. update level tree
-     * 3. get balance after insert data
+     * 1. insert data to tree 2. update level tree 3. get balance after insert data
      *
      * @param integer
      *
-     * @return node
+     * @return TreeNode
      */
     TreeNode insert(TreeNode node, int data) {
 
@@ -134,10 +144,24 @@ class AVL {
 	}
 
 	/* update height */
-	node.height = treeLevel(node);
+	node.height = treeLevel(node) + 1;
 
 	/* get balance factor */
-	
+	int balance = treeLevel(node);
+
+	// if this node becomes unbalanced
+	// Left Left
+	if (balance > 1 && data < node.getLeft().getData()) {
+	    return rightRotation(node);
+	}
+
+	// Right Right
+	if (balance < -1 && data > node.getRight().getData()) {
+	    return leftRotation(node);
+	}
+
+	// Left Right
+	if (balance > 1 && data > node.getRi)
     }
 
     /**
@@ -145,9 +169,9 @@ class AVL {
      *
      * @param a TreeNode
      *
-     * return TreeNode
+     *          return TreeNode
      */
-    TreeNode updateTreeAvl(TreeNode node) {
+    TreeNode updateTree(TreeNode node) {
 	// check height of node TreeNode
 	// if node TreeNode > 1
 	if (Math.abs(treeLevel(node.getLeft()) - treeLevel(node.getRight())) > 1) {
@@ -182,16 +206,15 @@ class AVL {
 	}
 
 	if (node.getLeft() != null) {
-	    node.setLeft(updateTreeAvl(node.getLeft()));
+	    node.setLeft(updateTree(node.getLeft()));
 	}
 
 	if (node.getRight() != null) {
-	    node.setRight(updateTreeAvl(node.getRight()));
+	    node.setRight(updateTree(node.getRight()));
 	}
 
 	return node;
 
     }
 
-    
 }
