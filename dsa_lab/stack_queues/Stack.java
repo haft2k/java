@@ -7,14 +7,14 @@ package stack_queues;
  * ruler: Last in first out (LIFO) stack = null --> top = -1
  *
  * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github: tdh2000
+ * @author github.com/hatd2k
  */
 public class Stack {
-    Node headNode;
+    Node head;
 
     /** Constructor default */
     Stack() {
-	headNode = null;
+	head = null;
     }
 
     /**
@@ -26,11 +26,11 @@ public class Stack {
 	// create new node data
 	Node newNode = new Node(data);
 
-	// put headNode reference into temp link
-	newNode.link = headNode;
+	// put head reference into template link
+	newNode.link = head;
 
-	// update headNode reference
-	headNode = newNode;
+	// update head reference
+	head = newNode;
     }
 
     /**
@@ -39,8 +39,14 @@ public class Stack {
      * @return integer
      */
     int pop() {
-	int x = headNode.data;
-	headNode = headNode.link;
+	// check for stack underflow
+	if (head == null) {
+	    return -1;
+	}
+
+	int x = head.data;
+	head = head.link;
+
 	return x;
     }
 

@@ -19,10 +19,10 @@ import java.util.Random;
 import java.util.Scanner;
 /**
  * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github: tdh2000
+ * @author github: hatd2k
  *
  */
-public class MainSort {
+public class Main {
 
     public static void main(String[] args) throws IOException {
 	Scanner scanner = new Scanner(System.in);

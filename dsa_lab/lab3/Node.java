@@ -4,18 +4,16 @@ class Node {
     private int data;
     private Node link;
 
+
     /**
      * Constructor parameter
+     * set new node with data parameter
      *
-     * @param integer & Node
+     * @param data
      */
-    Node(int data, Node newNode) {
-	this.data = data;
-	this.link = newNode;
-    }
-
     Node(int data) {
-	this(data, null);
+	this.data = data;
+	this.link = null;
     }
 
     // setter && getter of data && nextNode

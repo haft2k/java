@@ -11,22 +11,16 @@
  * accordance with the terms of the license agreement you entered into
  * with GumBox
  */
-package stack_queues;
+package exercise1;
 
 /**
  * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github.com/hatd2k
+ * @author github: hatd2k
  *
  */
-public class Main {
-    public static void main(String[] args) {
-	Stack tStack = new Stack();
-	int a = 12;
-	tStack.convertToBinary(a);
-	System.out.println();
 
-	// test function
-	// converToBinary(int a)
-	System.out.print(Integer.toBinaryString(a));
-    }
+public class Main {
+
+
 }
+

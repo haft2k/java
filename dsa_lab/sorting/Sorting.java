@@ -15,6 +15,44 @@ import java.util.Arrays;
 public class Sorting {
 
     /**
+     * copy data array parameter to copyArray
+     *
+     * @param arr
+     * @return
+     */
+    public int[] copyArray(int[] arr) {
+	int[] copyArray = new int[arr.length];
+	for (int i = 0; i < arr.length; i++) {
+	    copyArray[i] = arr[i];
+	}
+	return copyArray;
+    }
+
+    /**
+     * Print array
+     *
+     * @param arr
+     */
+    void display(int[] arr) {
+	for (int i = 0; i < arr.length; i++) {
+	    System.out.print(arr[i] + "  ");
+	}
+	System.out.println();
+    }
+
+    /**
+     * swap function
+     *
+     * @param 2 integer
+     *
+     */
+    void swap(int[] arr, int a, int b) {
+	int temp = arr[a];
+	arr[a] = arr[b];
+	arr[b] = temp;
+    }
+
+    /**
      *
      * Writing the array read from input array arr to file
      *
@@ -40,6 +78,42 @@ public class Sorting {
 	buffer.close();
     }
 
+    /**
+     *
+     * Reading the file then input to the array int[] arr
+     *
+     * @param fileName The file name of file to read
+     *
+     * @param arr      The output int array that will contain value read from file
+     * @throws FileNotFoundException
+     *
+     *
+     * @return array
+     */
+    public int[] readFile(String fileName, int[] arr) throws IOException {
+	File file = new File(fileName);
+	InputStream inputStream = new FileInputStream(file);
+	InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+	BufferedReader reader = new BufferedReader(inputStreamReader);
+
+	String line;
+	// Use split() breaks a given string
+	// Add to Array String
+	ArrayList<Integer> arrListInt = new ArrayList<Integer>();
+
+	while ((line = reader.readLine()) != null) {
+	    int a = Integer.parseInt(line);
+	    arrListInt.add(a);
+	}
+
+	arr = new int[arrListInt.size()];
+	for (int i = 0; i < arr.length; i++) {
+	    arr[i] = arrListInt.get(i);
+	}
+	System.out.println(Arrays.toString(arr));
+	return arr;
+    }
+
     public void searchWriteFile(String fileName, ArrayList<Integer> indexArray) throws IOException {
 	FileWriter file = new FileWriter(fileName);
 
@@ -53,44 +127,6 @@ public class Sorting {
 
 	// Close program write
 	buffer.close();
-    }
-
-    /**
-     *
-     * Reading the file then input to the array int[] arr
-     *
-     * @param fileName The file name of file to read
-     *
-     * @param arr      The output int array that will contain value read from file
-     * @throws FileNotFoundException
-     *
-     *
-     *
-     */
-
-    // return array int arr change value from input.txt
-    public int[] readFile(String fileName, int[] arr) throws IOException {
-	File file = new File(fileName);
-	InputStream inputStream = new FileInputStream(file);
-	InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-	BufferedReader reader = new BufferedReader(inputStreamReader);
-
-	String line;
-	// Use split() breaks a given string
-	// Add to Array String
-	ArrayList<Integer> arrListint = new ArrayList<Integer>();
-
-	while ((line = reader.readLine()) != null) {
-	    int a = Integer.parseInt(line);
-	    arrListint.add(a);
-	}
-
-	arr = new int[arrListint.size()];
-	for (int i = 0; i < arr.length; i++) {
-	    arr[i] = arrListint.get(i);
-	}
-	System.out.println(Arrays.toString(arr));
-	return arr;
     }
 
     /**
@@ -113,9 +149,9 @@ public class Sorting {
 	    for (int j = 0; j < copyArray.length - 1 - i; j++) {
 		if (copyArray[j] > copyArray[j + 1]) {
 		    isSorted = true;
-		    int temp = copyArray[j];
-		    copyArray[j] = copyArray[j + 1];
-		    copyArray[j + 1] = temp;
+
+		    // use funciton swap
+		    swap(copyArray, j, j + 1);
 		}
 	    }
 	    // display array
@@ -153,13 +189,12 @@ public class Sorting {
 		    minIndex = j;
 		}
 	    }
-	    int temp = copyArray[minIndex];
-	    copyArray[minIndex] = copyArray[i];
-	    copyArray[i] = temp;
 
+	    swap(copyArray, minIndex, i);
 	    display(copyArray);
 
 	}
+
 	final long endMillis = System.currentTimeMillis();
 	final long finalTime = endMillis - startMillis;
 	System.out.println("Selection Sort: " + finalTime + "ms");
@@ -169,7 +204,7 @@ public class Sorting {
 
     /**
      *
-     * Sorting the input array arr using Insertion Sort algorithm.
+     * Sorting the input array using Insertion Sort algorithm.
      *
      * @param copyArray Input array using for searching
      *
@@ -190,6 +225,7 @@ public class Sorting {
 		copyArray[j + 1] = copyArray[j];
 		j = j - 1;
 	    }
+
 	    copyArray[j + 1] = hold;
 
 	    display(copyArray);
@@ -219,6 +255,7 @@ public class Sorting {
     public void search(int[] arr, int value) throws IOException {
 	ArrayList<Integer> indexArray = new ArrayList<Integer>();
 	boolean a = false;
+
 	System.out.print("Index have number greater than number you want search: ");
 	for (int i = 0; i < arr.length; i++) {
 	    if (arr[i] > value) {
@@ -287,18 +324,4 @@ public class Sorting {
 
     }
 
-    public int[] copyArray(int[] arr) {
-	int[] copyArray = new int[arr.length];
-	for (int i = 0; i < arr.length; i++) {
-	    copyArray[i] = arr[i];
-	}
-	return copyArray;
-    }
-
-    void display(int[] arr) {
-	for (int i = 0; i < arr.length; i++) {
-	    System.out.print(arr[i] + "  ");
-	}
-	System.out.println();
-    }
 }

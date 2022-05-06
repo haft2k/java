@@ -11,22 +11,29 @@
  * accordance with the terms of the license agreement you entered into
  * with GumBox
  */
-package stack_queues;
+package recursion;
+// import .....
 
 /**
- * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github.com/hatd2k
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github: hatd2k
  *
  */
-public class Main {
+public class Fibonanci {
     public static void main(String[] args) {
-	Stack tStack = new Stack();
-	int a = 12;
-	tStack.convertToBinary(a);
-	System.out.println();
+	System.out.println(fibonanci(3));
+    }
 
-	// test function
-	// converToBinary(int a)
-	System.out.print(Integer.toBinaryString(a));
+    static int fibonanci(int n) {
+	if (n <= 1) {
+	    return n;
+	}
+
+	return (fibonanci(n-1) + fibonanci(n-2));
     }
 }
+
+
+
+
+

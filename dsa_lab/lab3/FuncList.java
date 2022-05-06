@@ -1,21 +1,20 @@
 package lab3;
 
 public class FuncList {
-    Node headNode, tailsNode;
+    Node head, tail;
 
     /** Constructor default */
     public FuncList() {
-	headNode = tailsNode = null;
+	head = tail = null;
     }
 
     /** Insert at head list */
     void insertAtHead(int data) {
 	Node nextNode = new Node(data);
 
-	nextNode.setLink(headNode);
+	nextNode.setLink(head);
 
-	this.headNode = nextNode;
-	this.tailsNode = nextNode;
+	this.head = nextNode;
 
     }
 
@@ -23,13 +22,16 @@ public class FuncList {
     void insertAtTail(int data) {
 	Node nextNode = new Node(data);
 
-	if (this.headNode == null) {
-	    this.headNode = nextNode;
-	    this.tailsNode = nextNode;
+	if (this.head == null) {
+	    this.head = nextNode;
+	    this.tail = nextNode;
+
+	    // end task
+	    return;
 	}
 
-	this.tailsNode.setLink(nextNode);
-	this.tailsNode = nextNode;
+	this.tail.setLink(nextNode);
+	this.tail = nextNode;
     }
 
     /** Insert multiple element at head list */
@@ -46,18 +48,19 @@ public class FuncList {
      * @param integer
      */
     void search(int value) {
-	Node current = headNode;
-	int i = 0;
+	Node current = head;
+	int i = -1;
 
-	if (headNode == null) {
+	if (head == null) {
 	    System.out.println("List empty");
 	} else {
 	    while (current != null) {
 		if (current.getData() == value) {
 		    break;
 		}
-		i++;
+
 		current = current.getLink();
+		i++;
 	    }
 	    System.out.println("found index: " + i);
 	}
@@ -71,7 +74,7 @@ public class FuncList {
 
     // Visit multiple Node
     void traverse() {
-	Node nextNode = headNode;
+	Node nextNode = head;
 
 	while (nextNode != null) {
 	    nextNode = nextNode.getLink();
@@ -86,7 +89,7 @@ public class FuncList {
     @Override
     public String toString() {
 	String result = "";
-	Node currentNode = this.headNode;
+	Node currentNode = this.head;
 	System.out.print("{  ");
 
 	while (currentNode != null) {

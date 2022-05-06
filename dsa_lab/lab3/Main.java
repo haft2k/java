@@ -16,7 +16,7 @@ package lab3;
 
 /**
  * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github: tdh2000
+ * @author github.com/hatd2k
  *
  */
 public class Main {
