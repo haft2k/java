@@ -14,8 +14,9 @@
 package exercise1;
 
 /**
+ *
  * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github: hatd2k
+ * @author github.com/hatd2k
  *
  */
 

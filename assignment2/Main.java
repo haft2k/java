@@ -1,7 +1,26 @@
+/*
+ * @version 1.0 April 21, 2022
+ *
+ * Copyright (c) April 21, 2022 - 2025 GumBox, Inc.
+ * Address....................
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of GumBox, Inc
+ * ("Confidential Information").  You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with GumBox
+ */
 package assignment2;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+/**
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/hatd2k
+ *
+ */
 
 public class Main {
     public static void showMenu() {
@@ -66,7 +85,7 @@ public class Main {
 		operation.getAllItemsFromFile("data.txt", list);
 		operation.displayAll(list);
 
-		operation.writeFilePrintStream("console_output.txt", list);
+		//operation.writeFilePrintStream("console_output.txt", list);
 		System.out.println("Data complete save to file data.txt");
 
 		break;
@@ -95,7 +114,7 @@ public class Main {
 		System.out.println();
 
 		/* write to console.txt */
-		operation.writeFilePrintStream("console_output.txt", list);
+		//operation.writeFilePrintStream("console_output.txt", list);
 
 		break;
 	    }
@@ -116,7 +135,7 @@ public class Main {
 		System.out.println("Deleted done!");
 
 		/* write to console.txt */
-		operation.writeFilePrintStream("console_output.txt", list);
+		//operation.writeFilePrintStream("console_output.txt", list);
 		break;
 	    }
 
@@ -124,7 +143,7 @@ public class Main {
 	    case 7: {
 		operation.sortByCode(list);
 		/* write to console.txt */
-		operation.writeFilePrintStream("console_output.txt", list);
+		//operation.writeFilePrintStream("console_output.txt", list);
 
 		break;
 	    }
@@ -143,7 +162,7 @@ public class Main {
 		operation.getAllItemsFromFile("data.txt", stack);
 		stack.printStack(stack);
 
-		operation.writeFilePrintStream("console_output.txt", list);
+		//operation.writeFilePrintStream("console_output.txt", list);
 
 		break;
 	    }
@@ -153,7 +172,7 @@ public class Main {
 		Queue<Product> queue = new Queue<Product>();
 		operation.getAllItemsFromFile("data.txt", queue);
 		queue.printQueue(queue);
-		operation.writeFilePrintStream("console_output.txt", list);
+		//operation.writeFilePrintStream("console_output.txt", list);
 
 		break;
 

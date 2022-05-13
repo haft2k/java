@@ -4,12 +4,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 class OperationToProduct {
@@ -198,7 +195,7 @@ class OperationToProduct {
      * write file with printStream
      *
      * @throws IOException
-     */
+
     void writeFilePrintStream(String fileName, MyList<Product> list) throws IOException {
 	// creates a FileOutputStream
 	//
@@ -216,7 +213,7 @@ class OperationToProduct {
 	pout.close();
 	file.close();
 	System.out.println("Success.....");
-    }
+    } */
 
     /**
      *
@@ -308,9 +305,7 @@ class OperationToProduct {
      * Deleting first product that has the ID input from keyboard from the list.
      *
      * @param list
-     *
      */
-
     void deleteByCode(MyList<Product> list) {
 	System.out.print("Delete by ID: ");
 	String idString = scanner.nextLine();
@@ -402,8 +397,5 @@ class OperationToProduct {
     void displayAll(MyList<Product> list) {
 	list.traverse();
     }
-
-
-
 
 }

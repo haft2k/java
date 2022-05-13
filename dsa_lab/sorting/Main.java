@@ -17,9 +17,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
 /**
- * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github: hatd2k
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/hatd2k
  *
  */
 public class Main {
@@ -56,7 +57,7 @@ public class Main {
 		arr = new int[inputNumber];
 
 		// use method testElement() random number integer
-		System.out.println("Inputing elements. Please wait a fer second!!! ");
+		System.out.println("Inputing elements. Please wait a few second!!! ");
 		for (int i = 0; i < inputNumber; i++) {
 		    arr[i] = numberRandom();
 		}

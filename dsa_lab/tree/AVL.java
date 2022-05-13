@@ -1,8 +1,8 @@
 package tree;
 
 /**
- * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github: tdh2000
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/hatd2k
  *
  */
 class AVL {

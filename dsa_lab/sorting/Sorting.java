@@ -12,6 +12,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/hatd2k
+ *
+ */
+
 public class Sorting {
 
     /**
@@ -213,9 +219,9 @@ public class Sorting {
     public int[] insertionSort(int[] arr) {
 	int[] copyArray = copyArray(arr);
 	System.out.print("Running: .... Almost done!!! ---- > ");
-
 	final long startMillis = System.currentTimeMillis();
 
+	/* sorting */
 	for (int i = 1; i < copyArray.length; i++) {
 	    int hold = copyArray[i];
 	    int j = i - 1;
@@ -230,6 +236,7 @@ public class Sorting {
 
 	    display(copyArray);
 
+	    // end sort
 	}
 
 	final long endMillis = System.currentTimeMillis();
@@ -242,7 +249,7 @@ public class Sorting {
 
     /**
      *
-     * Searching the indices of elements in array [arr] greater than value. Printing
+     * Searching the indices of elements in array greater than value. Printing
      *
      * and writing all indices to the console screen and file OUTPUT4.TXT separated
      * by space.
