@@ -1,6 +1,6 @@
 /*
  * 
- * Copyright (c) 2022 gumpbox, Inc. All Rights reserved.
+ * Copyright (c) 2022 Gumpbox, Inc. All Rights reserved.
  * 
  * This code is the for community. I hope you reading enjoy!!
  *
@@ -17,7 +17,7 @@
  *
  
  * @version 1.0  April 17th, 2022
- * @author  tdh2000 
+ * @author  github.com/haft2k
  */
 class JavaPrimer {
     /** main program */
@@ -43,7 +43,7 @@ class JavaPrimer {
  * 
  *
  * @version 1.0  April 17th, 2022
- * @author  tdh2000 
+ * @author  haft2k
  */ 
 enum Season {
     /** constant1, .... constant n; */
