@@ -5,6 +5,10 @@ package assignment2;
  *
  * ruler: Last in First out (LIFO) stack = null --> top = -1
  *
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/haftd2k
+ *
+ */
  */
 
 class Stack<T> {

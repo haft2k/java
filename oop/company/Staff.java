@@ -2,9 +2,7 @@ package assignment3;
 
 import java.util.Scanner;
 
-/*
- *
- */
+
 public abstract class Staff {
     // fields
 

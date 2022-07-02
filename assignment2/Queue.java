@@ -6,6 +6,11 @@ package assignment2;
  * ruler: First in First out (FIFO)
  *
  * Queue empty front = -1
+ *
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/haftd2k
+ *
+ */
  **/
 public class Queue<T> {
     // front node in the queue

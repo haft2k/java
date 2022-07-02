@@ -1,9 +1,8 @@
 package stack_queues;
 
 /**
- *
- * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github.com/tdh2000
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/haftd2k
  *
  */
 

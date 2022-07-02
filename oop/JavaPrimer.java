@@ -1,21 +1,21 @@
 /*
- * 
+ *
  * Copyright (c) 2022 Gumpbox, Inc. All Rights reserved.
- * 
+ *
  * This code is the for community. I hope you reading enjoy!!
  *
- * 
+ *
  */
 // package ....
 
 // import java.*;
 
 /**
- * 
- * Class JavaPrimer main
- * 
  *
- 
+ * Class JavaPrimer main
+ *
+ *
+
  * @version 1.0  April 17th, 2022
  * @author  github.com/haft2k
  */
@@ -40,11 +40,11 @@ class JavaPrimer {
  * - enum is special "class" that represents a group of constants
  * (unchangeable - can't be overridden, like "final")
  * - use enum when you have values that you know aren't going to change
- * 
+ *
  *
  * @version 1.0  April 17th, 2022
  * @author  haft2k
- */ 
+ */
 enum Season {
     /** constant1, .... constant n; */
     WINTER,
@@ -52,5 +52,5 @@ enum Season {
     SUMMER,
     FALL;
 
-    
+
 }
