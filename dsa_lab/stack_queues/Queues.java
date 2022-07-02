@@ -19,8 +19,9 @@ package stack_queues;
  *
  * ruler: First in First out (FIFO) queues = null --> top = -1
  *
- * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github.com/hatd2k
+ *
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/haftd2k
  *
  */
 public class Queues {

@@ -6,8 +6,9 @@ package stack_queues;
  *
  * ruler: Last in first out (LIFO) stack = null --> top = -1
  *
- * @version 1.00 April 21, 2022 GumBox, Inc
- * @author github.com/hatd2k
+ * @version 1.00 April 25, 2022 GumBox, Inc
+ * @author github.com/haftd2k
+ *
  */
 public class Stack {
     Node head;

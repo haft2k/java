@@ -2,7 +2,7 @@ package sorting;
 
 /**
  * @version 1.00 April 25, 2022 GumBox, Inc
- * @author github.com/hatd2k
+ * @author github.com/haftd2k
  *
  */
 class QuickSort {
