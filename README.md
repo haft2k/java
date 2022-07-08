@@ -5,10 +5,10 @@
 - Data structure & Algorithms
 
 
-**Maybe not enough for my jobs, but i think one day it help me or help you...
+**Maybe not enough for my jobs, but i think one day it help me or help you...**
 
 
-You Here... Reading and maybe reward for me....
-**
+**You Here... Reading and maybe reward for me....**
+
 
 Thanks!!! 
