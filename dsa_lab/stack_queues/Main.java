@@ -1,3 +1,5 @@
+package stack_queues;
+
 /*
  * GumBox Inc
  * (c) 2022 GumBox Inc. All rights reserved.
@@ -9,14 +11,15 @@
  * accordance with the terms of the license agreement you entered into
  * with GumBox
  */
-package stack_queues;
+
+ //import <name>
+
 /**
  * @version 1.00
- * @since July 09, 2022 GumBox, Inc
+ * @since July 09, 2022 GumBox Inc.
  * @author falc0n (https://www.github.com/haft2k)
  */
 
- //import <name>
 public class Main {
     public static void main(String[] args) {
 	Stack tStack = new Stack();

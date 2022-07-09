@@ -1,10 +1,9 @@
 package tree;
 /**
  * @version 1.00
- * @since July 09, 2022 GumBox, Inc
+ * @since July 09, 2022 GumBox Inc.
  * @author falc0n (https://www.github.com/haft2k)
  */
-
 class AVL {
     TreeNode rootNode;
 
