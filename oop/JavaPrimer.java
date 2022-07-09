@@ -1,24 +1,24 @@
 /*
+ * GumBox Inc
+ * (c) 2022 GumBox Inc. All rights reserved.
+ * address: Viet Nam
  *
- * Copyright (c) 2022 Gumpbox, Inc. All Rights reserved.
- *
- * This code is the for community. I hope you reading enjoy!!
- *
- *
+ * This software is the confidential and proprietary information of GumBox, Inc
+ * ("Confidential Information").  You shall not
+ * disclose such Confidential Information and shall use it only in
+ * accordance with the terms of the license agreement you entered into
+ * with GumBox
  */
+
 // package ....
 
-// import java.*;
-
 /**
- *
- * Class JavaPrimer main
- *
- *
-
- * @version 1.0  April 17th, 2022
- * @author  github.com/haft2k
+ * @version 1.00
+ * @since July 09, 2022 GumBox, Inc
+ * @author falc0n (https://www.github.com/haft2k)
  */
+
+ // import <name>
 class JavaPrimer {
     /** main program */
     public static void main(String[] args) {

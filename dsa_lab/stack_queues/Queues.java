@@ -1,9 +1,7 @@
 /*
- * @version 1.0 April 21, 2022
- *
- * Copyright (c) April 21, 2022 - 20?? GumBox, Inc.
- * Address....................
- * All rights reserved.
+ * GumBox Inc
+ * (c) 2022 GumBox Inc. All rights reserved.
+ * address: Viet Nam
  *
  * This software is the confidential and proprietary information of GumBox, Inc
  * ("Confidential Information").  You shall not
@@ -19,10 +17,9 @@ package stack_queues;
  *
  * ruler: First in First out (FIFO) queues = null --> top = -1
  *
- *
- * @version 1.00 April 25, 2022 GumBox, Inc
- * @author github.com/haftd2k
- *
+ * @version 1.00
+ * @since July 09, 2022 GumBox, Inc
+ * @author falc0n (https://www.github.com/haft2k)
  */
 public class Queues {
 

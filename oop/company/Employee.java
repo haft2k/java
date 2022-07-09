@@ -2,9 +2,7 @@ package assignment3;
 
 import java.util.Scanner;
 
-/*
- *
- */
+
 public class Employee extends Staff implements ICalculator {
 
     private int hourOT;

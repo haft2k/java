@@ -7,11 +7,12 @@ package assignment2;
  *
  * Queue empty front = -1
  *
- * @version 1.00 April 25, 2022 GumBox, Inc
- * @author github.com/haftd2k
  *
+ * @version 1.00
+ * @since July 09, 2022 GumBox, Inc
+ * @author falc0n (https://www.github.com/haft2k)
  */
- **/
+
 public class Queue<T> {
     // front node in the queue
     Node<T> headNode;
