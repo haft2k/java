@@ -1,120 +1,110 @@
-package tree;
+package BinaryTree;
 
-/**
- * @version 1.00
- * @since July 09, 2022 GumBox Inc.
- * @author falc0n (https://www.github.com/haft2k)
- */
 
+class Node {
+
+	int data;
+	Node left, right;
+
+	Node(int x) {
+		this.data = x;
+		left = right = null;
+	}
+}
 
 class TreeNode {
-    private TreeNode right;
-    private TreeNode left;
 
-    private int data;
-    int height;
-    private boolean isDeleted = false;
+	Node root;
 
-    /**
-     * Constructor
-     */
-    TreeNode(int data) {
-	this.data = data;
-	right = left = null;
-	height = 1;
-    }
-
-    /**
-     * Setter of right && left sub
-     *
-     */
-    void setRight(TreeNode right) {
-	this.right = right;
-    }
-
-    void setLeft(TreeNode left) {
-	this.left = left;
-    }
-
-    /**
-     * Getter of data, right, left
-     *
-     */
-    TreeNode getRight() {
-	return this.right;
-    }
-
-    TreeNode getLeft() {
-	return this.left;
-    }
-
-    int getData() {
-	return this.data;
-    }
-    /**
-     * mark node delete
-     *
-     */
-    void isDeleted() {
-	this.isDeleted = true;
-    }
-
-    /**
-     * find node data
-     *
-     * @param data
-     *
-     * @return TreeNode
-     */
-    TreeNode find(int data) {
-	if (this.data == data) {
-	    return this;
-	}
-	// left
-	if (this.data < data && getLeft() != null) {
-	    return left.find(data);
+	public TreeNode() {
+		root = null;
 	}
 
-	// right
-	if (this.data > data && getRight() != null) {
-	    return right.find(data);
+	boolean isEmpty() {
+		return root == null;
 	}
 
-	return null;
+	void insert(int x) {
+		if (isEmpty()) {
+			root = new Node(x);
+			return;
+		}
+		Node node = root, parent = null;
+		while (node != null) {
+			if (node.data == x) {
+				System.out.println(x + " đã có");
+				return;
+			}
+			parent = node;
+			if (node.data > x)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		if (parent.data > x)
+			parent.left = new Node(x);
+		else
+			parent.right = new Node(x);
 
-    }
-
-    /**
-     * insert new data
-     * compare data with root node
-     * left smaller than root
-     * right largest than root
-     *
-     * @param integer
-     *
-     * @return TreeNode
-     */
-    void insert(int data) {
-	/* right */
-	// use recursion find leaf right for new data
-	if (this.data >= data) {
-
-	    if (this.getRight() == null) {
-		this.setRight(new TreeNode(data));
-	    } else {
-		this.right.insert(data);
-	    }
-
-	    /* left */
-	    // use recursion find leaf left for new data
-	} else {
-	    if (this.getLeft() == null) {
-		this.setLeft(new TreeNode(data));
-	    } else {
-		this.left.insert(data);
-	    }
 	}
-    }
 
+	Node node(int x) {
+		Node nd = root;
+		while (nd != null && nd.data != x)
+			if (nd.data > x)
+				nd = nd.left;
+			else
+				nd = nd.right;
+		return nd; // nd==null?
+	}
 
+	boolean delete(int x) { // xóa giá trị x
+		Node node = root, parentX = null;
+		while (node != null && node.data != x) {
+			parentX = node;
+			if (node.data > x)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		if (node == null)
+			return false;
+		if (node.left == null || node.right == null) { // case 1,2.
+			if (parentX == null) {
+				root = root.right;
+				if (root.left != null)
+					root = root.left;
+			} else if (parentX.data < x) {
+				parentX.right = node.right;
+				if (node.left != null)
+					parentX.right = node.left;
+			} else {
+				parentX.left = node.right;
+				if (node.left != null)
+					parentX.left = node.left;
+			}
+		} else {// case 2 con !=null
+			Node rootOfRight = node.right, leftMost = node.right, parent = null;
+			while (leftMost.left != null) {
+				parent = leftMost;
+				leftMost = leftMost.left;
+			}
+			node.data = leftMost.data;
+			if (parent == null) {
+				node.right = leftMost.right;
+			} else {
+				parent.left = leftMost.right;
+			}
+		}
+		return true;
+	}
+
+	void printTree(Node node) {
+		if (node == null) {
+			return;
+		}
+		printTree(node.left);
+		System.out.print(node.data + " ");
+		printTree(node.right);
+	}
 }
