@@ -22,7 +22,6 @@
  * ${tags}
  * ${see_to_target}
  */</template><template autoinsert="false" context="newtype_context" deleted="false" description="Newly created files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.newtype" name="newtype">${filecomment}
-${package_declaration}
 /*
  * GumBox Inc
  * (c) 2022 GumBox Inc. All rights reserved.
@@ -34,6 +33,8 @@ ${package_declaration}
  * accordance with the terms of the license agreement you entered into
  * with GumBox
  */
+${package_declaration}
+
 ${typecomment}
 ${type_declaration}</template><template autoinsert="true" context="classbody_context" deleted="false" description="Code in new class type bodies" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.classbody" name="classbody">
 </template><template autoinsert="true" context="interfacebody_context" deleted="false" description="Code in new interface type bodies" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.interfacebody" name="interfacebody">
