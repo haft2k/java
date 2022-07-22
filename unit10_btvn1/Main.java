@@ -60,16 +60,16 @@ public class Main {
 		// .sorted((o1, o2) -> o1.getAmount().compareTo(o2.getAmount()))
 		// listTransaction2021Sorted.forEach(System.out::println);
 
-		/* 2.2. In ra danh sách các địa chỉ của Customer (trùng thì loại) */
+		/* In ra danh sách các địa chỉ của Customer (trùng thì loại) */
 		List<Customer> listDistinctCustomers = listCustomers.stream()
 								.filter(distinctByKey(Customer::getAddress))
 								.collect(Collectors.toList());
 		listDistinctCustomers.forEach(System.out::println);
 
 		/*
-		 * 2.2.1.
+		 * Danh sach dia chi
 		 */
-
+		listCustomers.stream().filter(distinctByKey(Customer::getAddress)).forEach(s -> System.out.println(s.getAddress()));
 	}
 
 
