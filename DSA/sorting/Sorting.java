@@ -18,7 +18,7 @@ import java.util.Arrays;
 /**
  * @version 1.00
  * @since July 09, 2022 GumBox Inc.
- * @author falc0n (https://www.github.com/haft2k)
+ * @author falcon (https://www.github.com/haft2k)
  */
 
 public class Sorting {
@@ -159,7 +159,7 @@ public class Sorting {
 		if (copyArray[j] > copyArray[j + 1]) {
 		    isSorted = true;
 
-		    // use funciton swap
+		    // use funciton swap change position
 		    swap(copyArray, j, j + 1);
 		}
 	    }
